@@ -1,0 +1,14 @@
+<% layout("/layouts/boilerplate") %>
+<body >
+    <h3 >All global Posts</h3>
+    <form  method="GET" action="/home/new">
+        <button >Create new Post</button>
+    </form>
+    <ul>
+        <% for(let globalpost of globalposts){ %>
+           <li ><a href="/home/<%=globalpost._id %>"><%= globalpost.title%></a></li> 
+        <% } %>
+    </ul>
+    
+</body>
+

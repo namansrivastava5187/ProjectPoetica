@@ -1,0 +1,16 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <h3>Edit Post</h3>
+    <form method = "POST" action ="/home/<%=globalpost._id %>?_method=PUT">
+        <input name="post[title]" value="<%=globalpost.title %>" type="text" />
+        <br /><br />
+        <input name="post[author]" value="<%=globalpost.author %>" type="text" />
+        <br/><br />
+        <input name="post[likes]" value="<%=globalpost.likes %>" type="number" />
+        <br /><br />
+        <textarea name="post[description]"  ><%=globalpost.description %></textarea>
+        <br/><br />
+        
+        <button>EDIT</button>
+    </form>    
+</body>

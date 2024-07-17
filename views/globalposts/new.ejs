@@ -1,0 +1,16 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <h3>Create a new Post</h3>
+    <form method="POST" action="/home" >
+        <input name="post[title]" placeholder ="enter title" type="text"  >
+        <br /><br />
+        <input name="post[author]" placeholder ="enter author name" type="text" />
+        <br/><br />
+        <input name="post[likes]" placeholder ="enter likes" type="number" />
+        <br /><br />
+        <textarea name="post[description]" placeholder ="enter description" ></textarea>
+        <br/><br />
+        <button>Add</button>
+    </form>
+    
+</body>
