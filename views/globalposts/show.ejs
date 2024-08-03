@@ -1,21 +1,27 @@
 <% layout("/layouts/boilerplate") %>
 <body>
     <h3>Post</h3>
+
+
     <ul>
         <li>title :<%= post.title %></li>
-        <li>author :<%= post.author %></li>
+        <li>author :<%= post.author.username %></li>
         <li>description :<%= post.description %></li>
         <li>likes :<%= post.likes%></li>
     </ul>
     <br />
+
+    <% if (currUser && currUser._id.equals(post.author._id)) { %> 
     <a href="/home/<%= post._id %>/edit">Edit this post</a>
     <br><br>
     <form method="POST" action ="/home/<%=post._id %>?_method=DELETE">
         <button>DELETE</button>
     </form>
     <hr>
+    <% } %>
     <div>
         
+        <% if(currUser) { %> 
         <form action="/home/<%=post._id %>/reviews" method="POST" novalidate class="needs-validation">
             <div class="mb-3 mt-3">
                 <label for="comment" class="form-label">Comments</label>
@@ -26,14 +32,19 @@
                 <button class="btn btn-outline-dark">Submit</button>
             </div>
         </form>
+
+        <% } %>
         <hr>
+
+
 
         <p><b>All comments</b></p>
         <div class="row">
+
         <% for(review of post.reviews){ %>
         <div class="card col-5 ms-3 mb-3">
             <div class="card-body">
-                <h5 class="card-title">Naman Srivastava</h5>
+                <h5 class="card-title"><%= review.author.name %></h5>
                 <p class="card-text"> <%= review.comment %> </p>
             </div>
             <form class="mb-3" method="POST" action="/home/<%= post._id%>/reviews/<%=review._id%>?_method=DELETE">

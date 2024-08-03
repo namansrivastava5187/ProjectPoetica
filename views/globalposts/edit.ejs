@@ -1,16 +1,29 @@
 <% layout("/layouts/boilerplate") %>
 <body>
-    <h3>Edit Post</h3>
+    <div class="row">
+    <div class="col-8 offset-2">
+    <h3 class="mt-3">Edit Post</h3>
     <form method = "POST" action ="/home/<%=globalpost._id %>?_method=PUT">
-        <input name="post[title]" value="<%=globalpost.title %>" type="text" />
-        <br /><br />
-        <input name="post[author]" value="<%=globalpost.author %>" type="text" />
-        <br/><br />
-        <input name="post[likes]" value="<%=globalpost.likes %>" type="number" />
-        <br /><br />
-        <textarea name="post[description]"  ><%=globalpost.description %></textarea>
-        <br/><br />
-        
-        <button>EDIT</button>
-    </form>    
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input name="post[title]" value="<%=globalpost.title %>" type="text" class="form-control" />
+        </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input name="post[author]" value="<%=globalpost.author %>" type="text" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input name="post[likes]" value="<%=globalpost.likes %>" type="text" class="form-control" />
+    </div>
+    <div class="mb-3">
+    <label for="poem" class="form-label">Literary Piece</label>
+    <textarea name="post[description]"  class="form-control" rows="4"><%=globalpost.description %></textarea>
+    </div>
+    <button class="btn btn-dark edit-btn mt-3">Edit</button>
+    <br><br>
+     
+    </form>  
+    </div>
+    </div>  
 </body>

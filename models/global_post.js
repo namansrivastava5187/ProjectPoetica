@@ -1,13 +1,18 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const Reviews = require("./review");
+const { ref } = require("yup");
 
 const listingSchema = new Schema ({
     title : String,
     description : String,
     outputimage : String,
-    likes: Number,
-    author : String,
+    likes: String,
+    images: String,
+    author :{
+            type : Schema.Types.ObjectId,
+            ref : "User"
+    },
     reviews :[
         {
             type: Schema.Types.ObjectId,
